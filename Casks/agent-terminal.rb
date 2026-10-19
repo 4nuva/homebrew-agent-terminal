@@ -1,7 +1,7 @@
 cask "agent-terminal" do
   version "0.4.0"
   url "https://github.com/4nuva/homebrew-agent-terminal/releases/download/v#{version}/Agent-Terminal-0.4.0-macos-arm64.zip"
-  sha256 "53c49edbc38d962e965f0d2638515b6406bc96f985a2bab9336ba21660774e11"
+  sha256 "d554b294985fd389521b1ec9af5c755d44e9e3e7fe7150720a598c9765570da5"
 
   name "Agent Terminal"
   desc "Desktop terminal host for the Agent Terminal mobile companion"
