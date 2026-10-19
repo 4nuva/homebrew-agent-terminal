@@ -36,9 +36,14 @@ try {
 
     Write-Host "Installed to $InstallDir"
     Write-Host 'Running Agent Terminal setup...'
-    & (Join-Path $InstallDir 'agent-terminal.exe') setup
-    if ($LASTEXITCODE -ne 0) {
-        throw "Agent Terminal setup exited with code $LASTEXITCODE."
+    # The app is a GUI-subsystem executable, so PowerShell returns from `&`
+    # as soon as it starts, before setup has run, and leaves $LASTEXITCODE
+    # unset. Start-Process -Wait waits for it, and -NoNewWindow keeps setup's
+    # prompts on this console.
+    $setupExe = Join-Path $InstallDir 'agent-terminal.exe'
+    $setup = Start-Process -FilePath $setupExe -ArgumentList 'setup' -NoNewWindow -Wait -PassThru
+    if ($setup.ExitCode -ne 0) {
+        throw "Agent Terminal setup exited with code $($setup.ExitCode)."
     }
 } finally {
     Remove-Item -LiteralPath $workDir -Recurse -Force -ErrorAction SilentlyContinue
