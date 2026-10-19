@@ -6,7 +6,7 @@ This public Homebrew tap installs Agent Terminal on macOS 13 and later.
 brew tap 4nuva/agent-terminal
 brew trust --cask 4nuva/agent-terminal/agent-terminal
 brew install --cask agent-terminal
-open -a "Agent Terminal" --args setup
+"/Applications/Agent Terminal.app/Contents/MacOS/agent-terminal" setup
 ```
 
 Upgrade with `brew upgrade --cask agent-terminal`.

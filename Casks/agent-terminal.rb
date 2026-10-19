@@ -8,7 +8,7 @@ cask "agent-terminal" do
   homepage "https://github.com/4nuva/homebrew-agent-terminal"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Agent Terminal.app"
   uninstall quit: "com.agentterminal.desktop"
