@@ -1,16 +1,34 @@
-# Agent Terminal Homebrew Tap
+# Agent Terminal installers
 
-This public Homebrew tap installs Agent Terminal on macOS 13 and later.
+Install Agent Terminal and run its setup from your terminal.
+
+## macOS
 
 ```sh
-brew tap 4nuva/agent-terminal
-brew trust --cask 4nuva/agent-terminal/agent-terminal
-brew install --cask agent-terminal
-"/Applications/Agent Terminal.app/Contents/MacOS/agent-terminal" setup
+curl -fsSL https://raw.githubusercontent.com/4nuva/homebrew-agent-terminal/main/install.sh | bash
 ```
 
-Upgrade with `brew upgrade --cask agent-terminal`.
+The script taps this repository, trusts and installs the Cask, then runs setup.
+Upgrade later with `brew upgrade --cask agent-terminal`.
 
-The Cask and versioned app archives are published here. The DMG is uploaded to
-Cloudflare R2 and served at
+## Windows
+
+```powershell
+irm https://raw.githubusercontent.com/4nuva/homebrew-agent-terminal/main/install.ps1 | iex
+```
+
+The script installs for the current user under
+`%LOCALAPPDATA%\Programs\Agent Terminal` by default. To choose another install
+folder, set it before running the command:
+
+```powershell
+$env:AGENT_TERMINAL_INSTALL_DIR = 'D:\Programs\Agent Terminal'
+irm https://raw.githubusercontent.com/4nuva/homebrew-agent-terminal/main/install.ps1 | iex
+```
+
+Setup runs from the selected folder. Installing under a protected folder such
+as Program Files may require an elevated PowerShell window.
+
+The Cask and versioned macOS app archives are published here. The DMG is hosted
+at
 `https://downloads.4nuva.dev/agent-terminal/Agent-Terminal-macOS-<arch>.dmg`.
