@@ -1,7 +1,7 @@
 cask "agent-terminal" do
-  version "0.4.3"
-  url "https://github.com/4nuva/homebrew-agent-terminal/releases/download/v#{version}/Agent-Terminal-0.4.3-macos-arm64.zip"
-  sha256 "bb5f38e82042fc183b9bb6a7957101909ce19571615ad704a17c3682f40f61ad"
+  version "0.4.4"
+  url "https://github.com/4nuva/homebrew-agent-terminal/releases/download/v#{version}/Agent-Terminal-0.4.4-macos-arm64.zip"
+  sha256 "f162505727cfc2ba3dbcc898a6cddecd1906df2c886274e98c8158d3c1e05c16"
 
   name "Agent Terminal"
   desc "Desktop terminal host for the Agent Terminal mobile companion"
@@ -10,6 +10,7 @@ cask "agent-terminal" do
   depends_on arch: :arm64
   depends_on macos: :ventura
 
+  auto_updates true
   app "Agent Terminal.app"
   uninstall quit: "com.agentterminal.desktop"
 
